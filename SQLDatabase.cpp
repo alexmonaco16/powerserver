@@ -49,7 +49,7 @@ void SQLDatabase::insertMisurazione(int idSensore, int potenzaConsumata, string 
 
 
 void SQLDatabase::insertNewSensoreIfNotExists(int idSensore) {
-    pstmt = con->prepareStatement("INSERT IGNORE INTO sensori(id, descrizione, idAzienda) VALUES(?,?,NULL)");
+    pstmt = con->prepareStatement("INSERT IGNORE INTO sensori(id, descrizione, idAzienda) VALUES(?,?,0)");
     pstmt->setInt(1, idSensore);
     pstmt->setString(2, "nuovo sensore");
     try {
