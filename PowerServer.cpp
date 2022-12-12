@@ -9,7 +9,7 @@
 #include "SQLDatabase.h"
 
 #define port 16000
-#define debug_fill_mode true
+#define debug_fill_mode false
 
 string systemtime2datetime(SYSTEMTIME);
 
@@ -29,7 +29,7 @@ int main() {
 	SYSTEMTIME lt;
 
 	if(debug_fill_mode)
-		randomFillDatabase(sqld, 5, 2022);
+		randomFillDatabase(sqld, 7, 2022);
 	else {
 		while (1) {
 			cout << " UDP | Attendo ricezione pacchetto\n";
@@ -102,7 +102,7 @@ void randomFillDatabase(SQLDatabase* sqld, int numberOfSensors, int year) {
 	mt19937 gen(rd());
 	uniform_int_distribution<> distr(50, 6000);
 
-	for(int iSensor=50; iSensor<50+numberOfSensors; iSensor++)
+	for(int iSensor=3; iSensor<3+numberOfSensors; iSensor++)
 		for (int iMonth = 1; iMonth <= 12; iMonth++)
 			for (int iDay = 1; iDay <= 28; iDay++)
 				for (int iHour = 0; iHour < 24; iHour+=8) {
